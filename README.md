@@ -1,6 +1,6 @@
 # row-column-intersection
-This project makes available the code and data from our NAACL 2021 paper: "Capturing Row and Column Semantics in Transformer Based Question Answering over Tables"
-It is available now on [arxiv](https://arxiv.org/abs/2104.08303)
+This project makes available the code and data from our NAACL 2021 paper: [Capturing Row and Column Semantics in Transformer Based Question Answering over Tables](https://www.aclweb.org/anthology/2021.naacl-main.96/)
+<!--Also available on [arxiv](https://arxiv.org/abs/2104.08303)-->
 
 The commands to process each dataset are under the datasets directory in README.md for each dataset:
 
@@ -8,6 +8,18 @@ The commands to process each dataset are under the datasets directory in README.
 * [TabMCQ](datasets/tabmcq/README.md)
 * [WikiTableQuestions](datasets/wtq/README.md)
 
+# Models on Hugging Face model hub
+
+All models based on albert-base-v2.
+
+| Dataset | Row/Col | Model Name | 
+| ------- | ------- | ---------- |
+| WikiSQL-Lookup |  Row  | michaelrglass/albert-base-rci-wikisql-row
+| WikiSQL-Lookup |  Column  | michaelrglass/albert-base-rci-wikisql-col
+| WikiTableQuestions-Lookup |  Row  | michaelrglass/albert-base-rci-wtq-row
+| WikiTableQuestions-Lookup |  Column  | michaelrglass/albert-base-rci-wtq-col
+| TabMCQ-Lookup |  Row  | michaelrglass/albert-base-rci-tabmcq-row
+| TabMCQ-Lookup |  Column  | michaelrglass/albert-base-rci-tabmcq-col
 
 # Overview
 
