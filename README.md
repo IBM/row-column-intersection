@@ -64,3 +64,30 @@ Note that in the case of WikiTableQuestions we do not have the row ids of the co
 We then train two models: one to classify question-column pairs and one to classify question-row pairs.
 
 These models are then applied and combined to give probabilities per-cell.
+
+
+## Example of applying trained model
+
+Under tableqa/example_apply.py there is an example that loads and applies the pre-trained WikiSQL-Lookup models.
+
+```python
+opts = TableQAOptions()
+fill_from_args(opts)
+rci = RCISystem(opts)
+print(rci.get_answers(
+    'Who won the race in June?',
+    ['Participant', 'Race', 'Date'],
+    [['Michael', 'Runathon', 'June 10, 2020'],
+     ['Mustafa', 'Runathon', 'Sept 3, 2020'],
+     ['Alfio', 'Runathon', 'Jan 1, 2021'],
+     ]))
+```
+
+This should produce the output:
+```python
+[{'row_ndx': 0, 'col_ndx': 0, 'confidence_score': -7.197484970092773, 'text': 'Michael'}, 
+{'row_ndx': 1, 'col_ndx': 0, 'confidence_score': -7.743732452392578, 'text': 'Mustafa'}, 
+{'row_ndx': 2, 'col_ndx': 0, 'confidence_score': -7.756279945373535, 'text': 'Alfio'}, 
+{'row_ndx': 0, 'col_ndx': 2, 'confidence_score': -9.112550735473633, 'text': 'June 10, 2020'}, 
+{'row_ndx': 0, 'col_ndx': 1, 'confidence_score': -9.140501022338867, 'text': 'Runathon'}]
+```
